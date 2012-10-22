@@ -26,6 +26,13 @@ class SieveOfErathosthenes Implements IteratorAggregate {
         return new ArrayIterator($this->sieve);
     }
 
+    public function isPrime($n) {
+        if ($n > $this->size) {
+            throw new Exception("{$n} > than {$this->size}");
+        }
+        return isset($this->sieve[$n]);
+    }
+
     public function getFactors($n) {
         if ($n > $this->size) {
             throw new Exception("{$n} > than {$this->size}");
